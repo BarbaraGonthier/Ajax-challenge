@@ -49,14 +49,14 @@
                 return response.data; // response.data instead of response.json() with fetch
             })
             .then(function(quote) {
-                console.log('data decoded from JSON:', quote[0]);
+                console.log('quote:', quote);
 
                 // Build a block of HTML
                 const quoteHtml = `
-        <p><strong>${quote.quote}</strong></p>
-<p>${quote.character}</p>
-<p>${quote.characterDirection}</p>
-        <img src="${quote.image}" />
+        <p><strong>${quote[0].quote}</strong></p>
+<p>${quote[0].character}</p>
+<p>${quote[0].characterDirection}</p>
+        <img src="${quote[0].image}" />
       `;
                 document.querySelector('#quote').innerHTML = quoteHtml;
             });
@@ -64,5 +64,6 @@
 
     fetchQuoteJSON();
 </script>
+
 </body>
 </html>
